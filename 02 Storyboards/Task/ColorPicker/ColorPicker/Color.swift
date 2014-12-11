@@ -47,6 +47,6 @@ class Color: NSObject
     
     func setImage(i: UIImage)
     {
-        _image = image;
+        _image = i;
     }
 }
