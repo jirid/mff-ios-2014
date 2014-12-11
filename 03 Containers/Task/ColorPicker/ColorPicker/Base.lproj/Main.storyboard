@@ -28,6 +28,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="51.5" y="56" width="36" height="20.5"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="51.5" y="56" width="36" height="20.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Green:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us0-yF-zds">
                                 <rect key="frame" x="36" y="85" width="51.5" height="20.5"/>
@@ -40,6 +46,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="48" y="113" width="39.5" height="20.5"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="48" y="113" width="39.5" height="20.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="green value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-JR-zfg">
                                 <rect key="frame" x="107.5" y="85" width="88.5" height="20.5"/>
@@ -52,6 +64,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="107.5" y="113" width="78" height="20.5"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="107.5" y="113" width="78" height="20.5"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="red value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7w-vH-f0l">
+                                <rect key="frame" x="107" y="56" width="70" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWB-Eg-vKJ">
                                 <rect key="frame" x="200" y="142" width="200" height="200"/>
@@ -60,12 +84,6 @@
                                     <constraint firstAttribute="width" constant="200" id="RT6-WP-2Qi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="red value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7w-vH-f0l">
-                                <rect key="frame" x="107" y="56" width="70" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,7 +95,9 @@
                             <constraint firstItem="sd8-3e-bzj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IFB-bP-sdW" secondAttribute="leadingMargin" constant="20" id="Ndg-Ge-FQV"/>
                             <constraint firstItem="lF5-JR-zfg" firstAttribute="leading" secondItem="n5G-WD-Lqw" secondAttribute="leading" id="OLG-iM-JtC"/>
                             <constraint firstAttribute="centerX" secondItem="DWB-Eg-vKJ" secondAttribute="centerX" id="Uw5-aP-Xpx"/>
+                            <constraint firstItem="DWB-Eg-vKJ" firstAttribute="top" secondItem="sD8-Mi-Pnx" secondAttribute="bottom" constant="8" symbolic="YES" id="VQi-Nl-g83"/>
                             <constraint firstItem="us0-yF-zds" firstAttribute="trailing" secondItem="wna-qj-Mon" secondAttribute="trailing" id="YPh-Vw-U1C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DWB-Eg-vKJ" secondAttribute="trailing" constant="20" id="cK5-EB-tXp"/>
                             <constraint firstItem="lF5-JR-zfg" firstAttribute="leading" secondItem="us0-yF-zds" secondAttribute="trailing" constant="20" id="fRR-M6-JML"/>
                             <constraint firstItem="wna-qj-Mon" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IFB-bP-sdW" secondAttribute="leadingMargin" constant="20" id="guq-mX-daU"/>
                             <constraint firstItem="lF5-JR-zfg" firstAttribute="baseline" secondItem="us0-yF-zds" secondAttribute="baseline" id="jm2-Sy-sdG"/>
@@ -88,6 +108,20 @@
                             <constraint firstItem="lF5-JR-zfg" firstAttribute="leading" secondItem="Y7w-vH-f0l" secondAttribute="leading" id="tNI-63-Hf5"/>
                             <constraint firstItem="us0-yF-zds" firstAttribute="top" secondItem="wna-qj-Mon" secondAttribute="bottom" constant="8" symbolic="YES" id="vuG-JS-PRa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VQi-Nl-g83"/>
+                                <exclude reference="cK5-EB-tXp"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="Uw5-aP-Xpx"/>
+                                <include reference="VQi-Nl-g83"/>
+                                <include reference="cK5-EB-tXp"/>
+                                <exclude reference="nzI-pU-HEQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="blueLabel" destination="n5G-WD-Lqw" id="7YX-v6-sv1"/>
