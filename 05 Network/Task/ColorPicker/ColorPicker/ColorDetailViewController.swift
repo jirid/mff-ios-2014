@@ -10,7 +10,11 @@ import UIKit
 
 class ColorDetailViewController: UIViewController {
     
-    var color = DataSource.oneColor()
+    var color: Color? {
+        didSet {
+            updateView()
+        }
+    }
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
@@ -21,10 +25,19 @@ class ColorDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = color.name
-        redLabel.text = "\(color.red)"
-        greenLabel.text = "\(color.green)"
-        blueLabel.text = "\(color.blue)"
-        imageView.image = color.image
+        updateView()
+    }
+    
+    func updateView()
+    {
+        if (isViewLoaded()) {
+            if let c = color {
+                titleLabel.text = c.name
+                redLabel.text = "\(c.red)"
+                greenLabel.text = "\(c.green)"
+                blueLabel.text = "\(c.blue)"
+                imageView.image = c.image
+            }
+        }
     }
 }

@@ -5,39 +5,43 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Master View Controller-->
-        <scene sceneID="OT6-eo-RTG">
+        <!--List View Controller-->
+        <scene sceneID="KH3-nu-9DP">
             <objects>
-                <viewController id="PsE-tp-WsN" customClass="MasterViewController" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NCU-EP-ts2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hay-2c-Vqi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="K0a-Mt-dK7">
+                <tableViewController id="CP1-z8-lVm" customClass="ListViewController" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Qof-Ug-ur6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNX-So-QOY">
-                                <rect key="frame" x="277" y="285" width="81" height="30"/>
-                                <state key="normal" title="Show Color">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="kEa-OT-yXk" kind="show" id="CDx-NK-PZv"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="hNX-So-QOY" secondAttribute="centerX" id="EOG-Kd-ldI"/>
-                            <constraint firstAttribute="centerY" secondItem="hNX-So-QOY" secondAttribute="centerY" id="yL8-PO-rQa"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="KBb-nR-bod"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VIc-kI-Xjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="Mrw-V7-fYG" style="IBUITableViewCellStyleDefault" id="VpS-Be-KYj">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VpS-Be-KYj" id="imq-LY-SZ8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mrw-V7-fYG">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CP1-z8-lVm" id="tKq-L9-thg"/>
+                            <outlet property="delegate" destination="CP1-z8-lVm" id="fHi-H3-fNG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fCj-tZ-9My"/>
+                    <connections>
+                        <segue destination="kEa-OT-yXk" kind="show" identifier="ShowDetail" id="ChN-nc-bEb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOi-j7-cRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="347"/>
+            <point key="canvasLocation" x="546" y="347"/>
         </scene>
         <!--Color Detail View Controller-->
         <scene sceneID="N4i-sU-UBz">
@@ -118,13 +122,13 @@
                                     <constraint firstAttribute="width" constant="200" id="RT6-WP-2Qi"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfD-NJ-unZ">
-                                <rect key="frame" x="277" y="394" width="43" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfD-NJ-unZ">
+                                <rect key="frame" x="278.5" y="394" width="43" height="30"/>
                                 <state key="normal" title="Select">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ygv-i5-UzH" kind="unwind" unwindAction="colorSelected:" id="lq6-Fo-Yfc"/>
+                                    <segue destination="Ygv-i5-UzH" kind="unwind" unwindAction="colorSelected:" id="DN4-ky-2eb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -192,7 +196,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PsE-tp-WsN" kind="relationship" relationship="rootViewController" id="v2q-ht-CIS"/>
+                        <segue destination="CP1-z8-lVm" kind="relationship" relationship="rootViewController" id="44U-Ji-swv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huv-4H-Xh9" userLabel="First Responder" sceneMemberID="firstResponder"/>

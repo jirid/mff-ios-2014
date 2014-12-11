@@ -16,6 +16,7 @@
 		48E6BC561A3A088600F3A983 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC551A3A088600F3A983 /* Color.swift */; };
 		48E6BC581A3A0C7200F3A983 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC571A3A0C7200F3A983 /* DataSource.swift */; };
 		48E6BC5E1A3A1F7400F3A983 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */; };
+		48E6BC601A3A26F800F3A983 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC5F1A3A26F800F3A983 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		48E6BC551A3A088600F3A983 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		48E6BC571A3A0C7200F3A983 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		48E6BC5F1A3A26F800F3A983 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				48E6BC551A3A088600F3A983 /* Color.swift */,
 				48E6BC571A3A0C7200F3A983 /* DataSource.swift */,
 				48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */,
+				48E6BC5F1A3A26F800F3A983 /* ListViewController.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				48E6BC5E1A3A1F7400F3A983 /* MasterViewController.swift in Sources */,
 				48E6BC541A3A079F00F3A983 /* ColorDetailViewController.swift in Sources */,
+				48E6BC601A3A26F800F3A983 /* ListViewController.swift in Sources */,
 				48E6BC341A3A075E00F3A983 /* AppDelegate.swift in Sources */,
 				48E6BC581A3A0C7200F3A983 /* DataSource.swift in Sources */,
 				48E6BC561A3A088600F3A983 /* Color.swift in Sources */,

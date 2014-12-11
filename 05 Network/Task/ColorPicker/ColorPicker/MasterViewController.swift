@@ -25,12 +25,13 @@ class MasterViewController: UIViewController {
     @IBAction
     func colorSelected(segue: UIStoryboardSegue) {
         let detail = segue.sourceViewController as ColorDetailViewController
-        let color = detail.color
-        let r = CGFloat(color.red) / 255.0
-        let g = CGFloat(color.green) / 255.0
-        let b = CGFloat(color.blue) / 255.0
-        let c = UIColor(red: r, green: g, blue: b, alpha: 0.9);
-        self.navigationController!.navigationBar.barTintColor = c
+        if let color = detail.color {
+            let r = CGFloat(color.red) / 255.0
+            let g = CGFloat(color.green) / 255.0
+            let b = CGFloat(color.blue) / 255.0
+            let c = UIColor(red: r, green: g, blue: b, alpha: 0.9);
+            self.navigationController!.navigationBar.barTintColor = c
+        }
     }
 
     /*
