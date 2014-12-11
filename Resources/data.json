@@ -1,0 +1,8 @@
+[
+    { "name": "Red", "red": 255, "green": 0, "blue": 0, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/red.png" },
+    { "name": "Green", "red": 0, "green": 255, "blue": 0, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/green.png" },
+    { "name": "Blue", "red": 0, "green": 0, "blue": 255, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/blue.png" },
+    { "name": "Yellow", "red": 255, "green": 255, "blue": 0, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/yellow.png" },
+    { "name": "Teal", "red": 0, "green": 255, "blue": 255, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/teal.png" },
+    { "name": "Purple", "red": 255, "green": 0, "blue": 255, "imageUrl": "https://dl.dropboxusercontent.com/u/3758672/mff/resources/purple.png" },
+]
