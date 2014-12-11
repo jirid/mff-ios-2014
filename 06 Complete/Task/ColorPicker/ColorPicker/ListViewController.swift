@@ -10,17 +10,55 @@ import UIKit
 
 class ListViewController: UITableViewController {
     
-    var colors = DataSource.someColors()
+    var colors: [Color]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = UIColor.grayColor()
+        
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func refresh()
+    {
+        refreshControl?.beginRefreshing()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+        { [weak self] in
+            var request = NSMutableURLRequest(URL: DataSource.dataUrl())
+            var maybeResponse: NSURLResponse?
+            var maybeError: NSError?
+            var maybeData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &maybeResponse, error: &maybeError)
+            
+            var success = false
+            if let error = maybeError {
+                println(error.description)
+            } else if let data = maybeData {
+                let c = DataSource.colorsFromJSON(data)
+                if let d = c {
+                    self?.colors = d
+                    success = true
+                }
+            }
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                self?.refreshControl?.endRefreshing()
+                if success {
+                    self?.tableView?.reloadData()
+                } else {
+                    let vc = UIAlertController(title: "Error", message: "Failed to download data", preferredStyle: UIAlertControllerStyle.Alert)
+                    vc.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self?.presentViewController(vc, animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -34,20 +72,20 @@ class ListViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return colors.count
+        return colors == nil ? 0 : colors!.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BasicCell", forIndexPath: indexPath) as UITableViewCell
 
-        cell.textLabel!.text = colors[indexPath.row].name
+        cell.textLabel!.text = colors![indexPath.row].name
         cell.accessoryType = .DisclosureIndicator
 
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowDetail", sender: colors[indexPath.row])
+        performSegueWithIdentifier("ShowDetail", sender: colors![indexPath.row])
     }
 
     // MARK: - Navigation
