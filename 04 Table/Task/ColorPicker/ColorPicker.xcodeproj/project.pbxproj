@@ -15,6 +15,7 @@
 		48E6BC541A3A079F00F3A983 /* ColorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC531A3A079F00F3A983 /* ColorDetailViewController.swift */; };
 		48E6BC561A3A088600F3A983 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC551A3A088600F3A983 /* Color.swift */; };
 		48E6BC581A3A0C7200F3A983 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC571A3A0C7200F3A983 /* DataSource.swift */; };
+		48E6BC5E1A3A1F7400F3A983 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		48E6BC531A3A079F00F3A983 /* ColorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDetailViewController.swift; sourceTree = "<group>"; };
 		48E6BC551A3A088600F3A983 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		48E6BC571A3A0C7200F3A983 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				48E6BC531A3A079F00F3A983 /* ColorDetailViewController.swift */,
 				48E6BC551A3A088600F3A983 /* Color.swift */,
 				48E6BC571A3A0C7200F3A983 /* DataSource.swift */,
+				48E6BC5D1A3A1F7400F3A983 /* MasterViewController.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E6BC5E1A3A1F7400F3A983 /* MasterViewController.swift in Sources */,
 				48E6BC541A3A079F00F3A983 /* ColorDetailViewController.swift in Sources */,
 				48E6BC341A3A075E00F3A983 /* AppDelegate.swift in Sources */,
 				48E6BC581A3A0C7200F3A983 /* DataSource.swift in Sources */,
