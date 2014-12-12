@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorShared
 
 class MasterViewController: UIViewController {
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorShared
 
 class ListViewController: UITableViewController {
     
@@ -26,37 +27,21 @@ class ListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    let queue = NSOperationQueue()
+    
     func refresh()
     {
         refreshControl?.beginRefreshing()
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
-        { [weak self] in
-            var request = NSMutableURLRequest(URL: DataSource.dataUrl())
-            var maybeResponse: NSURLResponse?
-            var maybeError: NSError?
-            var maybeData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &maybeResponse, error: &maybeError)
-            
-            var success = false
-            if let error = maybeError {
-                println(error.description)
-            } else if let data = maybeData {
-                let c = DataSource.colorsFromJSON(data)
-                if let d = c {
-                    self?.colors = d
-                    success = true
-                }
-            }
-            
-            dispatch_async(dispatch_get_main_queue())
-            { [weak self] in
-                self?.refreshControl?.endRefreshing()
-                if success {
-                    self?.tableView?.reloadData()
-                } else {
-                    let vc = UIAlertController(title: "Error", message: "Failed to download data", preferredStyle: UIAlertControllerStyle.Alert)
-                    vc.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-                    self?.presentViewController(vc, animated: true, completion: nil)
-                }
+        DataSource.downloadColors(queue)
+        { [weak self] colors in
+            self?.refreshControl?.endRefreshing()
+            if let c = colors {
+                self?.colors = colors
+                self?.tableView?.reloadData()
+            } else {
+                let vc = UIAlertController(title: "Error", message: "Failed to download data", preferredStyle: UIAlertControllerStyle.Alert)
+                vc.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                self?.presentViewController(vc, animated: true, completion: nil)
             }
         }
     }

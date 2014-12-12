@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-class DataSource: NSObject
+public class DataSource: NSObject
 {
-    class func dataUrl() -> NSURL
+    public class func dataUrl() -> NSURL
     {
         return NSURL(string: "https://dl.dropboxusercontent.com/u/3758672/mff/resources/data.json")!
     }
     
-    class func oneColor() -> Color
+    public class func oneColor() -> Color
     {
         let i = UIImage(named: "blue")!
         let c = Color(n: "Blue", r: 0, g: 0, b: 255, i: i)
         return c
     }
     
-    class func someColors() -> [Color]
+    public class func someColors() -> [Color]
     {
         var colors = [Color]()
         
@@ -48,12 +48,12 @@ class DataSource: NSObject
         return colors
     }
     
-    class func colorFromJSON(json: NSDictionary) -> Color?
+    public class func colorFromJSON(json: NSDictionary) -> Color?
     {
         return Color(n: json["name"]! as String, r: (json["red"]! as NSNumber).unsignedCharValue, g: (json["green"]! as NSNumber).unsignedCharValue, b: (json["blue"]! as NSNumber).unsignedCharValue, u: NSURL(string: json["imageUrl"]! as String)!)
     }
     
-    class func colorsFromJSON(json: NSData) -> [Color]?
+    public class func colorsFromJSON(json: NSData) -> [Color]?
     {
         var colors: [Color]? = nil
         
@@ -76,5 +76,63 @@ class DataSource: NSObject
         }
         
         return colors
+    }
+    
+    public class func downloadColors(queue: NSOperationQueue, completion: (colors: [Color]?) -> ())
+    {
+        queue.addOperationWithBlock()
+        {
+            var request = NSMutableURLRequest(URL: DataSource.dataUrl())
+            var maybeResponse: NSURLResponse?
+            var maybeError: NSError?
+            var maybeData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &maybeResponse, error: &maybeError)
+            
+            var colors: [Color]? = nil
+            
+            var success = false
+            if let error = maybeError {
+                println(error.description)
+            } else if let data = maybeData {
+                let c = DataSource.colorsFromJSON(data)
+                if let d = c {
+                    colors = d
+                    success = true
+                }
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock()
+            {
+                completion(colors: colors)
+            }
+        }
+    }
+    
+    public class func downloadImage(queue: NSOperationQueue, url: NSURL, completion: (image: UIImage?) -> ())
+    {
+        queue.addOperationWithBlock()
+        {
+            var request = NSMutableURLRequest(URL: url)
+            var maybeResponse: NSURLResponse?
+            var maybeError: NSError?
+            var maybeData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &maybeResponse, error: &maybeError)
+            
+            var image: UIImage? = nil
+            
+            var success = false
+            if let error = maybeError {
+                println(error.description)
+            } else if let data = maybeData {
+                let c = UIImage(data: data)
+                if let d = c {
+                    image = d
+                    success = true
+                }
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock()
+            {
+                completion(image: image)
+            }
+        }
     }
 }

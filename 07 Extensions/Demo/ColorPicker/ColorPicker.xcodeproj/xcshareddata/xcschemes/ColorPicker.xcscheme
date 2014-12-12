@@ -34,6 +34,20 @@
                ReferencedContainer = "container:ColorPicker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48EFE8741A3A66C20044985B"
+               BuildableName = "ColorSharedTests.xctest"
+               BlueprintName = "ColorSharedTests"
+               ReferencedContainer = "container:ColorPicker.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "48E6BC421A3A075E00F3A983"
                BuildableName = "ColorPickerTests.xctest"
                BlueprintName = "ColorPickerTests"
+               ReferencedContainer = "container:ColorPicker.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48EFE8741A3A66C20044985B"
+               BuildableName = "ColorSharedTests.xctest"
+               BlueprintName = "ColorSharedTests"
                ReferencedContainer = "container:ColorPicker.xcodeproj">
             </BuildableReference>
          </TestableReference>

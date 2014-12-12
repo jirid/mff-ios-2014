@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorShared
 
 class ColorDetailViewController: UIViewController {
     
@@ -52,18 +53,16 @@ class ColorDetailViewController: UIViewController {
         }
     }
     
+    let queue = NSOperationQueue()
+    
     func downloadImage(url: NSURL, _ c: Color)
     {
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
-        let task = session.downloadTaskWithURL(url, completionHandler: { [weak self] (url2, response, error) -> () in
-            c.setImage(UIImage(data: NSData(contentsOfURL: url2)!)!)
-            dispatch_async(dispatch_get_main_queue())
-            { //[weak self] in
-                let j = 0
-                self?.imageView.image = c.image
-                let i = 0
+        DataSource.downloadImage(queue, url: url)
+        { [weak self] image in
+            if let i = image {
+                c.setImage(i)
+                self?.imageView.image = i
             }
-        })
-        task.resume()
+        }
     }
 }

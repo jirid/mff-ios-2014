@@ -8,21 +8,21 @@
 
 import UIKit
 
-class Color: NSObject
+public class Color: NSObject
 {
     
-    let name: String
-    let red: UInt8
-    let green: UInt8
-    let blue: UInt8
+    public let name: String
+    public let red: UInt8
+    public let green: UInt8
+    public let blue: UInt8
     private var _image: UIImage?
-    var image: UIImage? {
+    public var image: UIImage? {
         get
         {
             return _image
         }
     }
-    let imageUrl: NSURL?
+    public let imageUrl: NSURL?
     
     private init(_ n: String, _ r: UInt8, _ g: UInt8, _ b: UInt8, _ i: UIImage?, _ u: NSURL?)
     {
@@ -35,17 +35,17 @@ class Color: NSObject
         super.init()
     }
     
-    convenience init(n: String, r: UInt8, g: UInt8, b: UInt8, u: NSURL)
+    public convenience init(n: String, r: UInt8, g: UInt8, b: UInt8, u: NSURL)
     {
         self.init(n, r, g, b, nil, u)
     }
     
-    convenience init(n: String, r: UInt8, g: UInt8, b: UInt8, i: UIImage)
+    public convenience init(n: String, r: UInt8, g: UInt8, b: UInt8, i: UIImage)
     {
         self.init(n, r, g, b, i, nil)
     }
     
-    func setImage(i: UIImage)
+    public func setImage(i: UIImage)
     {
         _image = i;
     }
